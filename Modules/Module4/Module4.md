@@ -166,9 +166,8 @@ s0 = "What is my length? Store it as a number in a variable."
 
  - Answer:
 
- s0 = input("Input String")
  lenght = len(s0)
- print(f"Your string was {lenght} characters long")
+ print(f"Your string was {str(lenght)} characters long")
 
 How do you create a substring in python?
 Create a substring of s1 containing only my name. Store it in a variable called ss1.
