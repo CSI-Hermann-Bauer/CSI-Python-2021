@@ -71,9 +71,9 @@ print(f"Computer selected: {computerChoice}")
 Give a python example for each logic operator in the module image.
 
  - Answers:
-   - OR:
-   - AND: 
-   - NOT: 
+   - OR: If yout first last name is Bauer, or yout sencond lastname is Montalvo, you are related to me.
+   - AND: If you are in San Ignacio, and in twelve grade, we are in the same class.
+   - NOT: If you are NOT in the list to the party, you cannot come.
 
 
 Type down any class notes below this sentence:
