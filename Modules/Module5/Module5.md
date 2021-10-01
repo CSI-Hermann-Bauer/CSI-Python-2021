@@ -71,9 +71,17 @@ print(f"Computer selected: {computerChoice}")
 Give a python example for each logic operator in the module image.
 
  - Answers:
-   - OR: If yout first last name is Bauer, or yout sencond lastname is Montalvo, you are related to me.
-   - AND: If you are in San Ignacio, and in twelve grade, we are in the same class.
-   - NOT: If you are NOT in the list to the party, you cannot come.
+
+    x = 10
+
+   - OR: if(x>20 or x<15):
+        The first one is false, but the second is true so it will return true.
+
+   - AND: if(x>20 or x<15):
+          Since the first one is false, it doesnt matter if the second one is true, it will return false.
+
+   - NOT: if(not x>20):
+          Since x is not more than 20, it will be false, yet the not will change the false to true.
 
 
 Type down any class notes below this sentence:
