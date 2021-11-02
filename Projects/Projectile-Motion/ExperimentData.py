@@ -1,15 +1,16 @@
 import math
 class ExperimentData:
-        def __init__(self, Gunname:str, Guncartridge:str, Round:str, ammo_speed:float, building:str, bulding_height_M:float, planet:str, g:float):
+        def __init__(self, Gunname:str, Guncartridge:str, Round:str, ammo_speed:float, building:str, bulding_height_M:float, planet:str):
             self.Gunname = Gunname
             self.Guncartridge = Guncartridge
             self.Round = Round
             self.ammo_speed = ammo_speed
             self.building = building
-            self.building_height_M = bulding_height_M
+            self.bulding_height_M = bulding_height_M
             self.planet = planet
+
         def getTime(self):
-            return math.sqrt(2*self.building_height_M/self.getGravity())
+            return math.sqrt(2*self.bulding_height_M/self.getGravity())
         
         def getDistance(self):
             return (self.ammo_speed * self.getTime())
@@ -21,6 +22,6 @@ class ExperimentData:
             return g_ms2[planets.index(self.planet)]
 
         def run(self):
-            print(f""" I shot a projectile from {self.building}, its {self.building_height_M} meters tall. 
+            print(f""" I shot a projectile from {self.building}, its {self.bulding_height_M} meters tall. 
             Said projectile was a {self.Guncartridge} fired from a {self.Gunname}. It travelled {self.getDistance()} 
             at {self.ammo_speed} m/s^2 for {self.getTime():.2}. It was fired at {self.planet} where the gravity is {self.getGravity()}""" )

@@ -54,13 +54,13 @@ ExperimentData("HK 416A5","5.56x45mm NATO", "5.56x45 HP", 947,"Burj Khalifa",828
 
 
 myOutputPath = Path(__file__).parents[0]
-myOutputFilePath = os.path.join(myOutputPath, 'ExperimentDatas.json')
+myOutputFilePath = os.path.join(myOutputPath, 'ExperimentData.json')
 
 with open(myOutputFilePath, 'w') as outfile:
-       json.dump(myDataSet[1].__dict__, outfile)
+       json.dump([data.__dict__ for data in myDataSet], outfile)
 
-deserialize = open(myOutputFilePath)
-experimentJson = json.loads(deserialize)
+deserialize = open(myOutputFilePath,)
+experimentJson = json.load(deserialize)
 
 for e in experimentJson:
        ExperimentData(**e).run()
