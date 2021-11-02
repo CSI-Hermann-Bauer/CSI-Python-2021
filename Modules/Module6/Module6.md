@@ -48,23 +48,28 @@ myObject = ExperimentData(**experimentJson)
 
 What does JSON Stand for?
 
- - Answer:
+ - Answer: Java SCript Object Notation
 
 Why are JSON formats important?
 
- - Answer:
+ - Answer: JSON is a way to store information in an easy to access way. Similar to a dict, you can store a variable, and its definition to access it later. It can then be serialized and desiarilized inside a code to access the values.
 
 Create an example of a JSON object with at least 4 values. It may represent anything but it must be original.
 
  - Answer:
+ {"Name" : "Hermann",
+ "LastName" : "Bauer",
+ "Age" : "17",
+ "Birthday" : "01/14/2004"
+ }
 
 What is the difference between serialization and deserialization?
 
- - Answer:
+ - Answer: When performing serialization, you turn an object, such as a JSON into a string, and while desearializing, you turn a string into an object. You can use json.load and json.dump to perform said actions.
 
 Research data persistance. What did you find?
 
- - Answer: 
+ - Answer: Persistent data is data that is not meant to be modified. Using the JSON above as an example, while my age will change every year, my birthday will forever be the same. And while I may change my name it is unlikely, making it persistent as well.
 
 Type down any class notes below this sentence:
 
