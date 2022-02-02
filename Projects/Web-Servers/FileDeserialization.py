@@ -25,5 +25,4 @@ print(f"Malts: {beer.malts}")
 print(f"Ibu: {beer.ibu}")
 print(f"Alcohol: {beer.alcohol}")
 print(f"Blg: {beer.blg}")
-print("Others expected...")
 
