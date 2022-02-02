@@ -1,7 +1,8 @@
 import json
 import os
 from pathlib import Path
-from beer import Beer
+from Beer import Beer
+import http
 
 #  Locate and open file
 myPath = Path(__file__).parents[0]
