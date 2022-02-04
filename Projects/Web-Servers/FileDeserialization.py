@@ -7,7 +7,6 @@ import http
 #  Locate and open file
 myPath = Path(__file__).parents[0]
 myFilePath = os.path.join(myPath, 'random_beer.json')
-#print(myFilePath)
 data = open(myFilePath, 'r')
  
 # deserializing the data
