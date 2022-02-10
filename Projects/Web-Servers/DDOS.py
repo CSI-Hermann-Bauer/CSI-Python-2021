@@ -1,7 +1,10 @@
 import http
 import threading
 from urllib import request
-addressURL = "http://192.168.0.101"
+import json
+
+from setuptools import Require
+addressURL = "http://192.168.0.101/protoapi/user"
 
 class myThread (threading.Thread):
     def __init__(self, threadID, name, counter):
@@ -12,7 +15,7 @@ class myThread (threading.Thread):
     def run(self):
         while (True):
             req = request.Request(addressURL)  
-            print(f"{self.threadID} success") 
+            print(f"{json.loads(req)} {self.threadID} success") 
 
 
     
