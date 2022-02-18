@@ -1,5 +1,6 @@
 from email import charset
 import json, ssl
+from tkinter import E
 import urllib.request
 from Beer import Beer
 import json
@@ -18,7 +19,50 @@ def getWord():
     # Deserialize 
     current_beer:Beer = Beer(**requestData)
     current_beer.name
-    return current_beer.name
+    name = current_beer.name.split()
+
+    return name[0]
+
+def printWord(word):
+  x=0
+  letters = list(string.ascii_lowercase)
+  lettersInWord = list(word)
+  lettersGuessed = []
+  temp:str= ("_" * len(word))
+  print(temp)
+  #for letter in word:
+  while True:
+    letter = input("Input Guess: ")
+    if letter in lettersInWord:
+      for i in range(len(lettersInWord)):
+        if letter == lettersInWord[i]:
+          lettersGuessed.append(letter)
+          temp = temp[:i] + lettersInWord[i] + temp[i + 1:]
+          
+          if temp==word:
+            return("Game won!")
+          else:
+            print(temp)
+            print("Letter in word")
+            print(lettersGuessed)
+
+      print(temp)
+
+    elif letter in lettersGuessed:
+      print("Already guessed that")
+    else:
+      print("Letter not in word")
+      print(steps[x])
+      x+=1
+      lettersGuessed.append(letter)
+      print(temp)
+      print(lettersGuessed)
+    if x>6:
+      return 'Game Lost'
+        
+
+
+
 steps = ["""
   -----
 |  |   
@@ -78,24 +122,8 @@ steps = ["""
 """]
 
 
-word = getWord()
-letters = list(string.ascii_lowercase)
-lettersInWord = list(word)
-lettersNotInWord = []
-
-for r in letters:
-    if r not in lettersInWord:
-        lettersInWord.append(r)
-
-print(steps[0])
-guess = []
-for i in range(len(word)):
-    if i != " ":
-        guess.append("_")
-    else:
-        guess.append("   ")
-
-#print("_ "*len(word))
-
-print(len(word)*" _")
+word = getWord().lower()
 print(word)
+print(printWord(word))
+
+
