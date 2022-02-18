@@ -33,7 +33,9 @@ def printWord(word):
   #for letter in word:
   while True:
     letter = input("Input Guess: ")
-    if letter in lettersInWord:
+    if letter not in letters:
+      print("Please input letter.")
+    elif letter in lettersInWord:
       for i in range(len(lettersInWord)):
         if letter == lettersInWord[i]:
           lettersGuessed.append(letter)
@@ -121,9 +123,9 @@ steps = ["""
 =========
 """]
 
-
-word = getWord().lower()
-print(word)
-print(printWord(word))
+while True:
+  word = getWord().lower()
+  print(word)
+  print(printWord(word))
 
 
