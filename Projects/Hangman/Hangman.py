@@ -1,6 +1,4 @@
-from email import charset
-import json, ssl
-from tkinter import E
+
 import urllib.request
 from Beer import Beer
 import json
@@ -36,17 +34,18 @@ def printWord(word):
     if letter not in letters:
       print("Please input letter.")
     elif letter in lettersInWord:
+      lettersGuessed.append(letter)
+      print(temp)
+      print("Letter in word")
+      print(lettersGuessed)
       for i in range(len(lettersInWord)):
         if letter == lettersInWord[i]:
-          lettersGuessed.append(letter)
           temp = temp[:i] + lettersInWord[i] + temp[i + 1:]
           
           if temp==word:
             return("Game won!")
-          else:
-            print(temp)
-            print("Letter in word")
-            print(lettersGuessed)
+          
+            
 
       print(temp)
 
