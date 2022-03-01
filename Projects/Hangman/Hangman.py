@@ -103,6 +103,7 @@ def printWord(word):
       print(lettersGuessed)
     #if incorrect guessed above 6, the game is lost
     if x>6:
+      print(word)
       return 'Game Lost'
         
 
