@@ -70,7 +70,7 @@ def printWord(word):
       #affirm user letter is in word
       print("Letter in word")
       #remind user of guessed words
-      print(lettersGuessed)
+      
       #replace letter in each ocurrance
       for i in range(len(lettersInWord)):
         #check if letter is in that place
@@ -100,7 +100,8 @@ def printWord(word):
       #print formatted temp
       print(tempFormat(temp))
       #remind user of letters guessed
-      print(lettersGuessed)
+      myVar = str(lettersGuessed).replace("[", " ").replace("]", " ")
+      print(f"Letters guessed: {myVar}")
     #if incorrect guessed above 6, the game is lost
     if x>6:
       print(word)
