@@ -1,4 +1,3 @@
-from re import A
 import urllib.request
 from Beer import Beer
 import json
@@ -7,6 +6,7 @@ import ssl
 
 #prevent error
 ssl._create_default_https_context = ssl._create_unverified_context
+
 #format word with spaces between letters
 def tempFormat(temp):
   #declare variable
@@ -107,9 +107,6 @@ def printWord(word):
       print(word)
       return 'Game Lost'
         
-
-
-
 steps = ["""
   -----
 |  |   
@@ -174,5 +171,3 @@ while True:
   #lowercase word
   word = getWord().lower()
   print(printWord(word))
-
-
