@@ -13,9 +13,11 @@ game_over=False
 
 #while loop to keep window open
 while not game_over:
-    #print every event
+    #get events and loop through them
     for event in pygame.event.get():
-        print(event) 
+        #make window close if close button is pushed
+        if event.type==pygame.QUIT:
+            game_over=True
 #clsoes display
 pygame.quit()
 #quits pygame
