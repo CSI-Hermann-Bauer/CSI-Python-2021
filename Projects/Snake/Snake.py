@@ -13,6 +13,7 @@ game_over=False
 
 #while loop to keep window open
 while not game_over:
+    #print every event
     for event in pygame.event.get():
         print(event) 
 #clsoes display
