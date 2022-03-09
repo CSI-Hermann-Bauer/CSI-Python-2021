@@ -1,5 +1,6 @@
 import pygame
 import time
+import random
 
 #initialize imported pygame
 pygame.init()
@@ -30,12 +31,9 @@ pygame.display.set_caption('Snake game by Edureka')
 #variable used in while loop 
 game_over=False
 
-#variables updating the snake coordinates
-x1 = 300
-y1 = 300
+
  
-x1_change = 0       
-y1_change = 0
+
 
 #clock to keep time
 clock = pygame.time.Clock()
@@ -50,50 +48,78 @@ def message(msg,color):
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [dis_width/2, dis_height/2])
 
+#define function for game
+def gameLoop():
+    game_over=False
+    game_close = False
+    #variables updating the snake coordinates
+    x1 = dis_width/2
+    y1 = dis_height/2
+    x1_change = 0       
+    y1_change = 0
+
+    #add food location variables at random 
+    foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
+    foody = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
+
 #while loop to keep window open
-while not game_over:
-    #get events and loop through them
-    for event in pygame.event.get():
-        #make window close if close button is pushed
-        if event.type==pygame.QUIT:
-            game_over = True
-        #If key is pushed, update the coordinates accordint to key pushed
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                x1_change = -snake_block
-                y1_change = 0
-            elif event.key == pygame.K_RIGHT:
-                x1_change = snake_block
-                y1_change = 0
-            elif event.key == pygame.K_UP:
-                y1_change = -snake_block
-                x1_change = 0
-            elif event.key == pygame.K_DOWN:
-                y1_change = snake_block
-                x1_change = 0
+    while not game_over:
+        #WHAT TO DO IF CLOSE   
+        while game_close == True:
+            #background white
+            dis.fill(white)
+            #print You lost
+            message("You Lost! Press Q-Quit or C-Play Again", red)
+            #update display
+            pygame.display.update()
+            #check events
+            for event in pygame.event.get():
+                #chek letter hit and act accordingly 
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        game_over = True
+                        game_close = False
+                    if event.key == pygame.K_c:
+                        gameLoop()
+        #check events and update locations according to key
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game_over = True
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    x1_change = -snake_block
+                    y1_change = 0
+                elif event.key == pygame.K_RIGHT:
+                    x1_change = snake_block
+                    y1_change = 0
+                elif event.key == pygame.K_UP:
+                    y1_change = -snake_block
+                    x1_change = 0
+                elif event.key == pygame.K_DOWN:
+                    y1_change = snake_block
+                    x1_change = 0
+        #loose if hit border
+        if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:
+            game_close = True
+        #change variables
+        x1 += x1_change
+        y1 += y1_change
+        #fill background white
+        dis.fill(white)
+        #add food
+        pygame.draw.rect(dis, "blue", [foodx, foody, snake_block, snake_block])
+        pygame.draw.rect(dis, black, [x1, y1, snake_block, snake_block])
+        #update display
+        pygame.display.update()
+        #print "yummy" if snake over food
+        if x1 == foodx and y1 == foody:
+            print("Yummy!!")
+        #snake speed
+        clock.tick(snake_speed)
+ 
+    pygame.quit()
+    quit()
+ 
+ 
+gameLoop()
 
-#chec if snake leaves and if so end game
-    if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:
-        game_over = True
-    #update coordinates by adding the change
-    x1 += x1_change
-    y1 += y1_change
-    #fill background  with white
-    dis.fill(white)
-    #add a new rectangle
-    pygame.draw.rect(dis, black, [x1, y1, 10, 10])
-    #update display
-    pygame.display.update()
-    #sleep for a while
-    clock.tick(snake_speed)
-
-#print you lost
-message("You lost",red)
-#umpdate display
-pygame.display.update()
-#sleep
-time.sleep(2)
-#clsoes display
-pygame.quit()
-#quits pygame
-quit()
