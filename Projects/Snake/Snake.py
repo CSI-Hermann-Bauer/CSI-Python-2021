@@ -18,6 +18,9 @@ while not game_over:
         #make window close if close button is pushed
         if event.type==pygame.QUIT:
             game_over=True
+    #draw snake
+    pygame.draw.rect(dis, "blue" ,[200,150,10,10])
+    pygame.display.update()
 #clsoes display
 pygame.quit()
 #quits pygame
