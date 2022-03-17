@@ -56,7 +56,9 @@ def Your_score(score):
 
  #funstion for each snake block in the snake to follow list of instructions
 def our_snake(snake_block, snake_list):
+    #for each block
     for x in snake_list:
+        #move each block to next block precious spot
         pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
  
  #output message
@@ -66,6 +68,7 @@ def message(msg,color):
 
 #define function for game
 def gameLoop():
+    #define game close and over var
     game_over=False
     game_close = False
     #variables updating the snake coordinates
@@ -103,18 +106,24 @@ def gameLoop():
                         gameLoop()
         #check events and update locations according to key
         for event in pygame.event.get():
+            #close window if user hits X
             if event.type == pygame.QUIT:
                 game_over = True
+            #if key..
             if event.type == pygame.KEYDOWN:
+                #if key left go left
                 if event.key == pygame.K_LEFT:
                     x1_change = -snake_block
                     y1_change = 0
+                #if key right go right
                 elif event.key == pygame.K_RIGHT:
                     x1_change = snake_block
                     y1_change = 0
+                #if key up go up
                 elif event.key == pygame.K_UP:
                     y1_change = -snake_block
                     x1_change = 0
+                #if key down go down
                 elif event.key == pygame.K_DOWN:
                     y1_change = snake_block
                     x1_change = 0
