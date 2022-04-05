@@ -7,7 +7,7 @@ for links in portals:
     email = driver.find_element_by_id("email")
     email.send_keys("22-106@sanignacio.pr")
     password = driver.find_element_by_id("password")
-    password.send_keys("Hbmontalvo1!")
+    password.send_keys("!")
     driver.find_element_by_class_name('default').click()
 
 driver.close()
