@@ -9,7 +9,7 @@ driver.get(links)
 email = driver.find_element_by_xpath("//*[@id=\"UserName\"]")
 email.send_keys("22-106@sanignacio.pr")
 password = driver.find_element_by_xpath("//*[@id=\"Password\"]")
-password.send_keys("Hermann123")
+password.send_keys("///")
 driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/form/div/input').click()
 
 for i in range(7):
